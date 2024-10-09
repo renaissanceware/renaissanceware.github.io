@@ -9,61 +9,30 @@
 <script>
 
     anychart.onDocumentReady(function () {
-		// create data
-		var data = [
-		{
-			id: "1",
-			name: "Development",
-			actualStart: "2018-01-25",
-			actualEnd: "2018-03-10",
-			children: [
-			{
-				id: "1_1",
-				name: "Analysis",
-				actualStart: "2018-01-25",
-				actualEnd: "2018-02-08"
-			},
-			{
-				id: "1_2",
-				name: "Design",
-				actualStart: "2018-02-04",
-				actualEnd: "2018-02-14"
-			},
-			{
-				id: "1_3",
-				name: "Meeting",
-				actualStart: "2018-02-15",
-				actualEnd: "2018-02-15"
-			},
-			{
-				id: "1_4",
-				name: "Implementation",
-				actualStart: "2018-02-15",
-				actualEnd: "2018-02-27"
-			},
-			{
-				id: "1_5",
-				name: "Testing",
-				actualStart: "2018-02-28",
-				actualEnd: "2018-03-10"
-			}
-		]}
-		];
+      // The data used in this sample can be obtained from the CDN
+      // https://cdn.anychart.com/samples/gantt-working-with-data/hierarchical-data/data.json
+      anychart.data.loadJsonFile(
+        'ganttchart.json',
+        function (data) {
+          // create data tree on raw data represented as hierarchical structure
+          var treeData = anychart.data.tree(data, 'as-tree');
 
-		// create a data tree
-		var treeData = anychart.data.tree(data, "as-tree");
+          // create project gantt chart
+          var chart = anychart.ganttProject();
 
-		// create a chart
-		var chart = anychart.ganttProject();
+          // set container id for the chart
+          chart.container('container');
 
-		// set the data
-		chart.data(treeData);
+          // set data for the chart
+          chart.data(treeData);
 
-		// set the container id
-		chart.container("container");
+          // initiate chart drawing
+          chart.draw();
 
-		// initiate drawing the chart
-		chart.draw();
+          // zoom chart all dates range
+          chart.fitAll();
+        }
+      );
     });
   
 </script>
