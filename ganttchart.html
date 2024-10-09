@@ -9,9 +9,24 @@
 <script>
 anychart.onDocumentReady(function () {
 	// create data
-	var data = "ganttchart.json";
+	var ganttchartdata;
+	
+	var value = "ganttchart.json";
+
+	$.ajax({
+                url: value,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    ganttchartdata = data;
+                },
+                error: function (xhr, status, error) {
+                    alert(status);
+                }
+            })
+	
 	// create a data tree
-	var treeData = anychart.data.tree(data, "as-tree");
+	var treeData = anychart.data.tree(ganttchartdata, "as-tree");
 
 	// create a chart
 	var chart = anychart.ganttProject();
