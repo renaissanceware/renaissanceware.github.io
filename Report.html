@@ -1,1 +1,87 @@
-1
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://tronelectronics.github.io/test/css/table.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        .divStatus {
+            width: 100px;
+            border-radius: 25px;
+            color: white;
+            margin: 1px 1px;
+            padding: 4px 10px;
+            text-align: center;
+            -moz-border-radius: 25px;
+        }
+    </style>
+
+    <script type="text/javascript" language="javascript">
+        $().ready(function (e) {
+            loadData();
+        });
+
+        function loadData() {
+
+            var value = "OverdueTaskList.json";
+
+            $.ajax({
+                url: value,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    var html =
+                        '<tr>' +
+
+                        '<td style="background-color:mediumslateblue;border: 1px dashed gray;color:white;font-weight:bold;padding:0px 0px 0px 0px;text-align:center;width:200px;">' +
+                        'TaskId' +
+                        '</td>' +
+
+                        '<td style="background-color:mediumslateblue;border: 1px dashed gray;color:white;font-weight:bold;padding:0px 0px 0px 0px;text-align:center;width:300px;">' +
+                        'TaskKey' +
+                        '</td>' +
+
+                        '<td style="background-color:mediumslateblue;border: 1px dashed gray;color:white;font-weight:bold;padding:0px 0px 0px 0px;text-align:center;width:130px;">' +
+                        'DaysOverdue' +
+                        '</td>' +
+
+                        '</tr>';
+
+                    $.each(data, function (i, item) {
+                        html += '<tr>';
+                        html += '<td style="text-align:center;">' + item.TaskId + '</td>';
+                        html += '<td style="text-align:center;">' + item.TaskKey + '</td>';
+                        html += '<td style="text-align:center;">' + item.DaysOverdue + '</td>';
+                        html += '</tr>';
+                    });
+
+                    html += '<tr><td colspan="5"></td></tr>';
+
+                    $("#table").html(html);
+                },
+                error: function (xhr, status, error) {
+                    alert(status);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div style="margin:0 auto;width:1000px;">
+        <table class="bordered">
+
+            <tr>
+                <th>List</th>
+            </tr>
+            <tr>
+                <td>
+                    <table id="table">
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
