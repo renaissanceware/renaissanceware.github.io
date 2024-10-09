@@ -15,23 +15,22 @@
       anychart.data.loadJsonFile(
         'ganttchart.json',
         function (data) {
-          // create data tree on raw data represented as table structure
-          var treeData = anychart.data.tree(data, 'as-tree');
-
-          // create project gantt chart
-          var chart = anychart.ganttProject();
-
-          // set data for the chart
-          chart.data(treeData);
-
-          // set container id for the chart
-          chart.container('container');
-
-          // initiate chart drawing
-          chart.draw();
-
-          // zoom chart all dates range
-          chart.fitAll();
+        // create a data tree
+    	var treeData = anychart.data.tree(data, "as-tree");
+    
+    	// create a chart
+    	var chart = anychart.ganttProject();
+    
+    	// set the data
+    	chart.data(treeData);
+    	// configure the scale
+    	chart.getTimeline().scale().maximum(Date.UTC(2018, 06, 30));
+    	// set the container id
+    	chart.container("container");
+    	// initiate drawing the chart
+    	chart.draw();
+    	// fit elements to the width of the timeline
+    	chart.fitAll();
         }
       );
     });
