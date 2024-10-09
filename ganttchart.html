@@ -8,40 +8,34 @@
 <body>
 <div id = "container" style="height:500px;margin:0 auto;width:800px;"></div>
 <script>
-anychart.onDocumentReady(function () {
-	
-	var value = "https://renaissanceware.github.io/ganttchart.json";
 
-	$.ajax({
-		url: value,
-		type: "GET",
-		dataType: "json",
-		success: function (data) {
-			// create data
-			var ganttchartdata = data;
+    anychart.onDocumentReady(function () {
+      // The data used in this sample can be obtained from the CDN
+      // https://cdn.anychart.com/samples/gantt-working-with-data/table-data/data.json
+      anychart.data.loadJsonFile(
+        'ganttchart.json',
+        function (data) {
+          // create data tree on raw data represented as table structure
+          var treeData = anychart.data.tree(data, 'as-table');
 
-			// create a data tree
-			var treeData = anychart.data.tree(ganttchartdata, "as-tree");
+          // create project gantt chart
+          var chart = anychart.ganttProject();
 
-			// create a chart
-			var chart = anychart.ganttProject();
+          // set data for the chart
+          chart.data(treeData);
 
-			// set the data
-			chart.data(treeData);
-			// configure the scale
-			chart.getTimeline().scale().maximum(Date.UTC(2018, 06, 30));
-			// set the container id
-			chart.container("container");
-			// initiate drawing the chart
-			chart.draw();
-			// fit elements to the width of the timeline
-			chart.fitAll();
-		},
-		error: function (xhr, status, error) {
-			alert(status);
-		}
-	})
-});
+          // set container id for the chart
+          chart.container('container');
+
+          // initiate chart drawing
+          chart.draw();
+
+          // zoom chart all dates range
+          chart.fitAll();
+        }
+      );
+    });
+  
 </script>
 </body>
 </html>
