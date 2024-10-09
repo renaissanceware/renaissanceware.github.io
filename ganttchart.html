@@ -16,7 +16,7 @@
         'ganttchart.json',
         function (data) {
           // create data tree on raw data represented as table structure
-          var treeData = anychart.data.tree(data, 'as-table');
+          var treeData = anychart.data.tree(data, 'as-tree');
 
           // create project gantt chart
           var chart = anychart.ganttProject();
