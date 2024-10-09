@@ -9,39 +9,38 @@
 <div id = "container" style="height:500px;margin:0 auto;width:800px;"></div>
 <script>
 anychart.onDocumentReady(function () {
-	// create data
-	var ganttchartdata;
 	
-	var value = "ganttchart.json";
+	var value = "https://renaissanceware.github.io/ganttchart.json";
 
 	$.ajax({
-                url: value,
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
-                    ganttchartdata = data;
-                },
-                error: function (xhr, status, error) {
-                    alert(status);
-                }
-            })
-	
-	// create a data tree
-	var treeData = anychart.data.tree(ganttchartdata, "as-tree");
+		url: value,
+		type: "GET",
+		dataType: "json",
+		success: function (data) {
+			// create data
+			var ganttchartdata = data;
 
-	// create a chart
-	var chart = anychart.ganttProject();
+			// create a data tree
+			var treeData = anychart.data.tree(ganttchartdata, "as-tree");
 
-	// set the data
-	chart.data(treeData);
-	// configure the scale
-	chart.getTimeline().scale().maximum(Date.UTC(2018, 06, 30));
-	// set the container id
-	chart.container("container");
-	// initiate drawing the chart
-	chart.draw();
-	// fit elements to the width of the timeline
-	chart.fitAll();
+			// create a chart
+			var chart = anychart.ganttProject();
+
+			// set the data
+			chart.data(treeData);
+			// configure the scale
+			chart.getTimeline().scale().maximum(Date.UTC(2018, 06, 30));
+			// set the container id
+			chart.container("container");
+			// initiate drawing the chart
+			chart.draw();
+			// fit elements to the width of the timeline
+			chart.fitAll();
+		},
+		error: function (xhr, status, error) {
+			alert(status);
+		}
+	})
 });
 </script>
 </body>
