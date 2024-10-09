@@ -63,7 +63,7 @@
 				actualStart: Date.UTC(2018, 05, 30),
 				actualEnd: Date.UTC(2018, 06, 11),
 				progressValue: "40%"
-			},
+			}
 
 		]
 	}]
