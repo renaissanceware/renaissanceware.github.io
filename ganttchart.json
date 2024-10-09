@@ -1,69 +1,121 @@
 [{
-		id: "1",
-		name: "Development Life Cycle",
-		actualStart: "2018-02-01",
-		actualEnd: "2018-06-15",
-		children: [
-      {
-				id: "1_1",
-				name: "Planning",
-				actualStart: "2018-01-02",
-				actualEnd: "2018-01-22",
-				connectTo: "1_2",
-				connectorType: "start-start",
-				progressValue: "75%"
-			},
-			{
-				id: "1_2",
-				name: "Design and Prototyping",
-				actualStart: "2018-01-23",
-				actualEnd: "2018-02-20",
-				connectTo: "1_3",
-				connectorType: "start-start",
-				progressValue: "60%"
-			},
-			{
-				id: "1_3",
-				name: "Evaluation Meeting",
-				actualStart: "2018-02-23",
-				actualEnd: "2018-02-23",
-				connectTo: "1_4",
-				connectorType: "start-start",
-				progressValue: "80%"
-			},
-			{
-				id: "1_4",
-				name: "Application Development",
-				actualStart: "2018-02-26",
-				actualEnd: "2018-04-26",
-				connectTo: "1_5",
-				connectorType: "start-start",
-				progressValue: "90%"
-			},
-			{
-				id: "1_5",
-				name: "Testing",
-				actualStart: "2018-04-29",
-				actualEnd: "2018-05-15",
-				connectTo: "1_6",
-				connectorType: "start-start",
-				progressValue: "60%"
-			},
-			{
-				id: "1_6",
-				name: "Deployment",
-				actualStart: "2018-05-20",
-				actualEnd: "2018-05-27",
-				connectTo: "1_7",
-				connectorType: "start-start",
-				progressValue: "100%"
-			},
-			{
-				id: "1_7",
-				name: "Maintenance",
-				actualStart: "2018-05-30",
-				actualEnd: "2018-06-11",
-				progressValue: "40%"
-			}
-    ]
+    "id": 1,
+    "name": "Staff #1",
+    "connector": [{
+        "connectTo": 7
+    }]
+}, {
+    "id": 2,
+    "name": "Kimberly Bennett",
+    "actualStart": 1403308800000,
+    "actualEnd": 1407628800000,
+    "progressValue": "88%",
+    "parent": 1
+}, {
+    "id": 3,
+    "name": "Ryan Phillips",
+    "actualStart": 1402790400000,
+    "actualEnd": 1409356800000,
+    "progressValue": "65%",
+    "parent": 1
+}, {
+    "id": 4,
+    "name": "Earl King",
+    "actualStart": 1403308800000,
+    "actualEnd": 1408147200000,
+    "progressValue": "68%",
+    "parent": 1
+}, {
+    "id": 5,
+    "name": "Randy Payne",
+    "actualStart": 1402790400000,
+    "actualEnd": 1409011200000,
+    "progressValue": "85%",
+    "parent": 1
+}, {
+    "id": 6,
+    "name": "Jack Williamson",
+    "actualStart": 1403913600000,
+    "actualEnd": 1407628800000,
+    "progressValue": "56%",
+    "parent": 1
+}, {
+    "id": 7,
+    "name": "Staff #2",
+    "connector": [{
+        "connectTo": 13
+    }]
+}, {
+    "id": 8,
+    "name": "Angela Nichols",
+    "actualStart": 1407196800000,
+    "actualEnd": 1412553600000,
+    "progressValue": "47%",
+    "parent": 7
+}, {
+    "id": 9,
+    "name": "Peter Moore",
+    "actualStart": 1409270400000,
+    "actualEnd": 1412985600000,
+    "progressValue": "25%",
+    "parent": 7
+}, {
+    "id": 10,
+    "name": "Laura Bowman",
+    "actualStart": 1408838400000,
+    "actualEnd": 1414108800000,
+    "progressValue": "42%",
+    "parent": 7
+}, {
+    "id": 11,
+    "name": "Larry Butler",
+    "actualStart": 1408320000000,
+    "actualEnd": 1412899200000,
+    "progressValue": "76%",
+    "parent": 7
+}, {
+    "id": 12,
+    "name": "Martin Cox",
+    "actualStart": 1409184000000,
+    "actualEnd": 1413244800000,
+    "progressValue": "25%",
+    "parent": 7
+}, {
+    "id": 13,
+    "name": "Staff #3"
+}, {
+    "id": 14,
+    "name": "Bonnie Kim",
+    "actualStart": 1412812800000,
+    "actualEnd": 1419120000000,
+    "progressValue": "72%",
+    "parent": 13
+}, {
+    "id": 15,
+    "name": "James Kelley",
+    "actualStart": 1412640000000,
+    "actualEnd": 1418428800000,
+    "progressValue": "12%",
+    "parent": 13
+}, {
+    "id": 16,
+    "name": "Frances Howell",
+    "actualStart": 1412294400000,
+    "actualEnd": 1417824000000,
+    "progressValue": "75%",
+    "parent": 13
+}, {
+    "id": 17,
+    "name": "Donald Meyer",
+    "actualStart": 1413417600000,
+    "actualEnd": 1419724800000,
+    "progressValue": "44%",
+    "parent": 13
+}, {
+    "id": 18,
+    "name": "Samuel Bailey",
+    "actualStart": 1412726400000,
+    "actualEnd": 1420156800000,
+    "progressValue": "79%",
+    "parent": 13
 }]
