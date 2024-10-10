@@ -1,6 +1,7 @@
 
 <html>
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js"></script>
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
@@ -14,31 +15,29 @@
 <script>
 
     anychart.onDocumentReady(function () {
-      // The data used in this sample can be obtained from the CDN
-      // https://cdn.anychart.com/samples/gantt-working-with-data/hierarchical-data/data.json
-      anychart.data.loadJsonFile(
-        'ganttchart.json',
-        function (data) {
-          // create data tree on raw data represented as hierarchical structure
-          var treeData = anychart.data.tree(data, 'as-tree');
-
-          // create project gantt chart
-          var chart = anychart.ganttProject();
-
-          // set container id for the chart
-          chart.container('container');
-
-          // set data for the chart
-          chart.data(treeData);
-
-          // initiate chart drawing
-          chart.draw();
-
-          // zoom chart all dates range
-          chart.fitAll();
-        }
-      );
-    });
+		$.ajax({
+			url: "ganttchart.json",
+			type: "GET",
+			dataType: "json",
+			success: function (data) {
+				
+				var treeData = anychart.data.tree(data, 'as-tree');
+				
+				var chart = anychart.ganttProject();
+				
+				chart.container('container');
+				
+				chart.data(treeData);
+				
+				chart.draw();
+				
+				chart.fitAll();
+			},
+			error: function (xhr, status, error) {
+				alert(status);
+			}
+		})
+	});
   
 </script>
 </body>
