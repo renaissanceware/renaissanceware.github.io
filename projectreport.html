@@ -36,11 +36,11 @@
                         '<tr>' +
 
                         '<td style="background-color:mediumslateblue;border: 1px dashed gray;color:white;font-weight:bold;padding:0px 0px 0px 0px;text-align:center;width:200px;">' +
-                        'TaskId' +
+                        'TaskKey' +
                         '</td>' +
 
                         '<td style="background-color:mediumslateblue;border: 1px dashed gray;color:white;font-weight:bold;padding:0px 0px 0px 0px;text-align:center;width:300px;">' +
-                        'TaskKey' +
+                        'TaskName' +
                         '</td>' +
 
                         '<td style="background-color:mediumslateblue;border: 1px dashed gray;color:white;font-weight:bold;padding:0px 0px 0px 0px;text-align:center;width:130px;">' +
@@ -51,8 +51,8 @@
 
                     $.each(data.items, function (i, item) {
                         html += '<tr>';
-                        html += '<td style="text-align:center;">' + item.TaskId + '</td>';
                         html += '<td style="text-align:center;">' + item.TaskKey + '</td>';
+                        html += '<td style="text-align:center;">' + item.TaskName + '</td>';
                         html += '<td style="text-align:center;">' + item.DaysOverdue + '</td>';
                         html += '</tr>';
                     });
