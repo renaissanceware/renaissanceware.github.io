@@ -1,52 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>jstree basic demos</title>
-	<style>
-	</style>
+    <meta charset="UTF-8">
+    <title>jstree basic demos</title>
+    <style>
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 </head>
+
 <body>
-	<h1>AJAX demo</h1>
-	<div id="ajax"></div>
+    <h1>AJAX demo</h1>
+    <div id="ajax"></div>
 
-	<h1>Interaction and events demo</h1>
-	<div id="evts"></div>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-	
-	<script>
+    <h1>Interaction and events demo</h1>
+    <div id="evts"></div>
 
-	// ajax demo
-	$('#ajax').jstree({
-		'core' : {
-			'data' : {
-				"url" : "tree.json",
-				"dataType" : "json" // needed only if you do not supply JSON headers
-			}
-		}
-	});
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
-	$('#evts')
-		.on("changed.jstree", function (e, data) {
-			if(data.selected.length) {
-				alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
-			}
-		})
-		.jstree({
-			'core' : {
-				'multiple' : false,
-				'data' : [
-					{ "text" : "Root node", "children" : [
-							{ "text" : "Child node 1", "id" : 1 },
-							{ "text" : "Child node 2" }
-					]}
-				]
-			}
-		});
-	</script>
+    <script>
+        $(function () {
+            $('#using_json_3').jstree({
+                'core': {
+                    'data': {
+                        'url': function (node) {
+                            return node.id === '#' ? '/categorylist.json' : 'projectlist.json';
+                        },
+                        'data': function (node) {
+                            return { 'id': node.id };
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
