@@ -1,22 +1,22 @@
 [
   {
-    "id": "ajson1",
-    "parent": "#",
-    "text": "Simple root node"
+    "id": "1",
+    "parent": "Root 1",
+    "text": "Root 1 Child 1"
   },
   {
-    "id": "ajson2",
-    "parent": "#",
-    "text": "Root node 2"
+    "id": "2",
+    "parent": "Root 1",
+    "text": "Root 1 Child 2"
   },
   {
-    "id": "ajson3",
-    "parent": "ajson2",
-    "text": "Child 1"
+    "id": "3",
+    "parent": "Root 2",
+    "text": "Root 2 Child 1"
   },
   {
-    "id": "ajson4",
-    "parent": "ajson2",
-    "text": "Child 2"
+    "id": "4",
+    "parent": "Root 2",
+    "text": "Root 2 Child 2"
   }
 ]
