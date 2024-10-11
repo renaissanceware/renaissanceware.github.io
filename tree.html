@@ -10,10 +10,7 @@
 </head>
 
 <body>
-    <h1>AJAX demo</h1>
-    <div id="ajax"></div>
-    <h1>Interaction and events demo</h1>
-    <div id="evts"></div>
+    <div id="tree"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
@@ -24,7 +21,7 @@
             type: "GET",
             dataType: "json",
             success: function (data) {
-                $('#ajax')
+                $('#tree')
                     .on("changed.jstree", function (e, data) {
                         if (data.selected.length) {
                             alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
