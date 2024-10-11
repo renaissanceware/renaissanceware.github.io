@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>jstree basic demos</title>
-	<style>
-	</style>
+    <meta charset="UTF-8">
+    <title>jstree basic demos</title>
+    <style>
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 </head>
+
 <body>
-	<h1>AJAX demo</h1>
-	<div id="ajax"></div>
-	<h1>Interaction and events demo</h1>
-	<div id="evts"></div>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-	
-	<script>
-	// ajax demo
-	$('#ajax').jstree({
-		'core' : {
-			'data' : {
-				"url" : "tree.json",
-				"dataType" : "json" // needed only if you do not supply JSON headers
-			}
-		}
-	});
-	$('#evts')
-		.on("changed.jstree", function (e, data) {
-			if(data.selected.length) {
-				alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
-			}
-		})
-		.jstree({
-			'core' : {
-				'multiple' : false,
-				'data' : [
-					{ "text" : "Root node", "children" : [
-							{ "text" : "Child node 1", "id" : 1 },
-							{ "text" : "Child node 2" }
-					]}
-				]
-			}
-		});
-	</script>
+    <h1>AJAX demo</h1>
+    <div id="ajax"></div>
+    <h1>Interaction and events demo</h1>
+    <div id="evts"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+    <script>
+        $.ajax({
+            url: "tree.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                $('#ajax')
+                    .on("changed.jstree", function (e, data) {
+                        if (data.selected.length) {
+                            alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
+                        }
+                    })
+                    .jstree({
+                        'core': {
+                            'multiple': false,
+                            'data': data.items
+                        }
+                    });
+            },
+            error: function (xhr, status, error) {
+                alert(status);
+            }
+        })
+    </script>
 </body>
+
 </html>
