@@ -1,1 +1,1 @@
-{"items": [{"id": "DIGITAL", "parent": "#", "text": "Digital Project"}, {"id": "LLM", "parent": "DIGITAL", "text": "Large Language Model"}]}
+{"items": [{"id": "CP", "parent": "DIGITAL", "text": "Customer Portal"}, {"id": "DIGITAL", "parent": "", "text": "Digital Project"}, {"id": "IP", "parent": "DIGITAL", "text": "Internal Portal"}, {"id": "LLM", "parent": "DIGITAL", "text": "Large Language Model"}, {"id": "QR", "parent": "DIGITAL", "text": "QR Code"}, {"id": "SB", "parent": "DIGITAL", "text": "Service BOM"}]}
