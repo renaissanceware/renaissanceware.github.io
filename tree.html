@@ -37,7 +37,7 @@
             border-radius: 4px;
         }
     </style>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -48,12 +48,12 @@
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
     <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
     <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 </head>
 
 <body>
-        <div class="navbar">
+    <div class="navbar">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
@@ -62,8 +62,14 @@
     </div>
 
     <div style="height:50px;"></div>
-    <div id="tree"></div>
-    <div id = "container" style="height:500px;margin:0 auto;width:800px;"></div>
+
+    <div style="float:left;">
+        <div id="tree"></div>
+    </div>
+
+    <div style="float:right;">
+        <div id="container" style="height:500px;margin:0 auto;width:800px;"></div>
+    </div>
 
     <script>
         $.ajax({
@@ -90,29 +96,29 @@
         })
 
         anychart.onDocumentReady(function () {
-		$.ajax({
-			url: "ganttchart.json",
-			type: "GET",
-			dataType: "json",
-			success: function (data) {
-				
-				var treeData = anychart.data.tree(data.items, 'as-table');
-				
-				var chart = anychart.ganttProject();
-				
-				chart.container('container');
-				
-				chart.data(treeData);
-				
-				chart.draw();
-				
-				chart.fitAll();
-			},
-			error: function (xhr, status, error) {
-				alert(status);
-			}
-		})
-	});
+            $.ajax({
+                url: "ganttchart.json",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+
+                    var treeData = anychart.data.tree(data.items, 'as-table');
+
+                    var chart = anychart.ganttProject();
+
+                    chart.container('container');
+
+                    chart.data(treeData);
+
+                    chart.draw();
+
+                    chart.fitAll();
+                },
+                error: function (xhr, status, error) {
+                    alert(status);
+                }
+            })
+        });
     </script>
 </body>
 
