@@ -43,6 +43,31 @@
                 alert(status);
             }
         })
+
+        anychart.onDocumentReady(function () {
+            $.ajax({
+                url: "ganttchart.json",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+
+                    var treeData = anychart.data.tree(data.items, 'as-table');
+
+                    var chart = anychart.ganttProject();
+
+                    chart.container('container');
+
+                    chart.data(treeData);
+
+                    chart.draw();
+
+                    chart.fitAll();
+                },
+                error: function (xhr, status, error) {
+                    alert(status);
+                }
+            })
+        });
     </script>
 </head>
 
