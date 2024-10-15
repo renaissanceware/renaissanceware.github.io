@@ -2,123 +2,123 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://tronelectronics.github.io/projects/customerportal/css/table.css">
+  <link rel="stylesheet" href="https://tronelectronics.github.io/projects/customerportal/css/table.css">
 
-    <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/color.css">
-    <script type="text/javascript" src="https://jeasyui.com/easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="https://jeasyui.com/easyui/jquery.easyui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/icon.css">
+  <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/color.css">
+  <script type="text/javascript" src="https://jeasyui.com/easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="https://jeasyui.com/easyui/jquery.easyui.min.js"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
-    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
-    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
-    <script src="https://visjs.github.io/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
-    <link href="https://visjs.github.io/vis-timeline/styles/vis-timeline-graph2d.min.css" rel="stylesheet"
-        type="text/css" />
+  <script src="https://visjs.github.io/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
+  <link href="https://visjs.github.io/vis-timeline/styles/vis-timeline-graph2d.min.css" rel="stylesheet"
+    type="text/css" />
 
-    <script>
-        $(document).ready(function () {
-            $.ajax({
-                url: "tree.json",
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
-                    $('#tree')
-                        .on("changed.jstree", function (e, data) {
-                            if (data.selected.length) {
-                                alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
-                            }
-                        })
-                        .jstree({
-                            'core': {
-                                'multiple': false,
-                                'data': data.items
-                            }
-                        });
-                },
-                error: function (xhr, status, error) {
-                    alert(status);
-                }
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        url: "tree.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          $('#tree')
+            .on("changed.jstree", function (e, data) {
+              if (data.selected.length) {
+                alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
+              }
             })
+            .jstree({
+              'core': {
+                'multiple': false,
+                'data': data.items
+              }
+            });
+        },
+        error: function (xhr, status, error) {
+          alert(status);
+        }
+      })
 
-            var groups = new vis.DataSet([
-                { id: 1, content: 'Phase 1', value: 1 },
-                { id: 2, content: 'Phase 2', value: 2 },
-                { id: 3, content: 'Phase 3', value: 3 },
-                { id: 4, content: 'Phase 4', value: 4 },
-                { id: 5, content: 'Phase 5', value: 5 }
-            ]);
+      var groups = new vis.DataSet([
+        { id: 1, content: 'Phase 1', value: 1 },
+        { id: 2, content: 'Phase 2', value: 2 },
+        { id: 3, content: 'Phase 3', value: 3 },
+        { id: 4, content: 'Phase 4', value: 4 },
+        { id: 5, content: 'Phase 5', value: 5 }
+      ]);
 
-            // create a dataset with items
-            // note that months are zero-based in the JavaScript Date object, so month 3 is April
-            var items = new vis.DataSet([
-                { id: 1, group: 1, content: 'item 1', start: "2024-01-01", end: "2024-01-31" },
-                { id: 2, group: 2, content: 'item 2', start: "2024-02-01", end: "2024-02-28" },
-                { id: 3, group: 3, content: 'item 3', start: "2024-03-01", end: "2024-03-31" },
-                { id: 4, group: 4, content: 'item 4', start: "2024-04-01", end: "2024-04-30" },
-                { id: 5, group: 5, content: 'item 5', start: "2024-05-01", end: "2024-05-31" }
-            ]);
+      // create a dataset with items
+      // note that months are zero-based in the JavaScript Date object, so month 3 is April
+      var items = new vis.DataSet([
+        { id: 1, group: 1, content: 'item 1', start: "2024-01-01", end: "2024-01-31" },
+        { id: 2, group: 2, content: 'item 2', start: "2024-02-01", end: "2024-02-28" },
+        { id: 3, group: 3, content: 'item 3', start: "2024-03-01", end: "2024-03-31" },
+        { id: 4, group: 4, content: 'item 4', start: "2024-04-01", end: "2024-04-30" },
+        { id: 5, group: 5, content: 'item 5', start: "2024-05-01", end: "2024-05-31" }
+      ]);
 
-            // create visualization
-            var container = document.getElementById('visualization');
-            var options = {
-                // option groupOrder can be a property name or a sort function
-                // the sort function must compare two groups and return a value
-                //     > 0 when a > b
-                //     < 0 when a < b
-                //       0 when a == b
-                groupOrder: function (a, b) {
-                    return a.value - b.value;
-                },
-                editable: true
-            };
+      // create visualization
+      var container = document.getElementById('visualization');
+      var options = {
+        // option groupOrder can be a property name or a sort function
+        // the sort function must compare two groups and return a value
+        //     > 0 when a > b
+        //     < 0 when a < b
+        //       0 when a == b
+        groupOrder: function (a, b) {
+          return a.value - b.value;
+        },
+        editable: true
+      };
 
-            var timeline = new vis.Timeline(container);
-            timeline.setOptions(options);
-            timeline.setGroups(groups);
-            timeline.setItems(items);
-        })
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions(options);
+      timeline.setGroups(groups);
+      timeline.setItems(items);
+    })
 
-        anychart.onDocumentReady(function () {
-            $.ajax({
-                url: "ganttchart.json",
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
+    anychart.onDocumentReady(function () {
+      $.ajax({
+        url: "ganttchart.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
 
-                    var treeData = anychart.data.tree(data.items, 'as-table');
+          var treeData = anychart.data.tree(data.items, 'as-table');
 
-                    var chart = anychart.ganttProject();
+          var chart = anychart.ganttProject();
 
-                    chart.container('container');
+          chart.container('container');
 
-                    chart.data(treeData);
+          chart.data(treeData);
 
-                    chart.draw();
+          chart.draw();
 
-                    chart.fitAll();
-                },
-                error: function (xhr, status, error) {
-                    alert(status);
-                }
-            })
-        });
-    </script>
+          chart.fitAll();
+        },
+        error: function (xhr, status, error) {
+          alert(status);
+        }
+      })
+    });
+  </script>
 </head>
 
 <body class="easyui-layout">
-    <div data-options="region:'east',title:' ',split:true" style="width:300px;">
-        <div style="margin:0 auto;">
+  <div data-options="region:'east',title:' ',split:true" style="width:300px;">
+    <!-- <div style="margin:0 auto;">
             <div style="float:left;margin:10 10 10 10;">
                 <table class="bordered">
                     <thead>
@@ -150,21 +150,22 @@
                 </table>
             </div>
             <div style="clear:both;"></div>
-        </div>
-    </div>
-    <div data-options="region:'south',title:' ',split:true" style="height:100px;">
+        </div> -->
+    <table id="pg" class="easyui-propertygrid" style="width:300px" data-options="url:'propertygrid.json',method:'get',showGroup:true,scrollbarSize:0"></table>
+  </div>
+  <div data-options="region:'south',title:' ',split:true" style="height:100px;">
 
-    </div>
-    <div data-options="region:'west',title:' ',split:true" style="width:300px;">
-        <div id="tree"></div>
-    </div>
-    <div data-options="region:'north',title:' ',split:true" style="height:100px;">
+  </div>
+  <div data-options="region:'west',title:' ',split:true" style="width:300px;">
+    <div id="tree"></div>
+  </div>
+  <div data-options="region:'north',title:' ',split:true" style="height:100px;">
 
-    </div>
-    <div data-options="region:'center',title:' '" style="padding:5px;background:#eee;">
-        <div id="visualization"></div>
-        <div id="container" style="height:500px;margin:0 auto;width:800px;"></div>
-    </div>
+  </div>
+  <div data-options="region:'center',title:' '" style="padding:5px;background:#eee;">
+    <div id="visualization"></div>
+    <div id="container" style="height:500px;margin:0 auto;width:800px;"></div>
+  </div>
 </body>
 
 </html>
