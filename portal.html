@@ -93,6 +93,14 @@
         showGroup: true,
         scrollbarSize: 0
       });
+
+      var row = {
+        name: 'AddName',
+        value: '',
+        group: 'Marketing Settings',
+        editor: 'text'
+      };
+      $('#pg').propertygrid('appendRow', row);
     })
 
     anychart.onDocumentReady(function () {
