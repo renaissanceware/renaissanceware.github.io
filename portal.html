@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://tronelectronics.github.io/projects/customerportal/css/table.css">
+
     <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/color.css">
@@ -115,11 +117,49 @@
 </head>
 
 <body class="easyui-layout">
-    <div data-options="region:'north',title:' ',split:true" style="height:100px;"></div>
-    <div data-options="region:'south',title:' ',split:true" style="height:100px;"></div>
-    <div data-options="region:'east',title:' ',split:true" style="width:300px;"></div>
+    <div data-options="region:'east',title:' ',split:true" style="width:300px;">
+        <div style="margin:0 auto;">
+            <div style="float:left;margin:10 10 10 10;">
+                <table class="bordered">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold;text-align:center; width:50px;">Q</td>
+                            <td style="font-weight:bold;text-align:center; width:50px;">D</td>
+                            <td style="font-weight:bold;text-align:center; width:50px;">C</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">
+                                <div id="circle"
+                                    style="background:#FA5252;border-radius:100%;height:15px;width:15px;margin:0 auto;">
+                                </div>
+                            </td>
+                            <td style="text-align:center;">
+                                <div id="circle"
+                                    style="background:#40C057;border-radius:100%;height:15px;width:15px;margin:0 auto;">
+                                </div>
+                            </td>
+                            <td style="text-align:center;">
+                                <div id="circle"
+                                    style="background:#40C057;border-radius:100%;height:15px;width:15px;margin:0 auto;">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div data-options="region:'south',title:' ',split:true" style="height:100px;">
+
+    </div>
     <div data-options="region:'west',title:' ',split:true" style="width:300px;">
         <div id="tree"></div>
+    </div>
+    <div data-options="region:'north',title:' ',split:true" style="height:100px;">
+
     </div>
     <div data-options="region:'center',title:' '" style="padding:5px;background:#eee;">
         <div id="visualization"></div>
