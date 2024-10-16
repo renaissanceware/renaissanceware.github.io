@@ -27,6 +27,8 @@
     type="text/css" />
 
   <script>
+  var projectKey='';
+    
     $(document).ready(function () {
       $.ajax({
         url: "tree.json",
@@ -36,7 +38,8 @@
           $('#tree')
             .on("changed.jstree", function (e, data) {
               if (data.selected.length) {
-                alert('The selected node is: ' + data.instance.get_node(data.selected[0]).text);
+                alert('The selected node is: ' + data.instance.get_node(data.selected[0]).id);
+                projectKey = data.instance.get_node(data.selected[0]).id;
               }
             })
             .jstree({
@@ -90,8 +93,10 @@
     })
 
     anychart.onDocumentReady(function () {
+      var jsonfilename = "dataganttchart_" + projectKey + ".json";
+      
       $.ajax({
-        url: "ganttchart.json",
+        url: jsonfilename,
         type: "GET",
         dataType: "json",
         success: function (data) {
