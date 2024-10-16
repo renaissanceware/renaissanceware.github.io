@@ -1,1 +1,1 @@
-{"items": [{"id": "Education", "name": "University Name", "actualStart": "2020", "actualEnd": "Present", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}, {"id": "Job Title", "name": "Company Name", "actualStart": "2020", "actualEnd": "2022", "connectTo": "", "connectorType": "", "progressValue": "", "parent": "Education"}]}
+{"items": [{"id": "TaskKey", "name": "TaskName", "actualStart": "StartDate", "actualEnd": "DueDate", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}]}
