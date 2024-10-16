@@ -1,1 +1,1 @@
-{"items": [{"id": "Project1", "parent": "Parent1", "text": "Name1"}]}
+{"items": [{"id": "TaskKey", "name": "name", "actualStart": "StartDate", "actualEnd": "DueDate", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}]}
