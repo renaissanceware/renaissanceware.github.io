@@ -87,20 +87,6 @@
       timeline.setOptions(options);
       timeline.setGroups(groups);
       timeline.setItems(items);
-
-      $('#pg').propertygrid({
-        url: 'propertygrid.json',
-        showGroup: true,
-        scrollbarSize: 0
-      });
-
-      var row = {
-        name: 'AddName',
-        value: '',
-        group: 'Marketing Settings',
-        editor: 'text'
-      };
-      $('#pg').propertygrid('appendRow', row);
     })
 
     anychart.onDocumentReady(function () {
@@ -132,7 +118,7 @@
 
 <body class="easyui-layout">
   <div data-options="region:'east',title:' ',split:true" style="width:300px;">
-    <!-- <div style="margin:0 auto;">
+    <div style="margin:0 auto;">
             <div style="float:left;margin:10 10 10 10;">
                 <table class="bordered">
                     <thead>
@@ -164,8 +150,7 @@
                 </table>
             </div>
             <div style="clear:both;"></div>
-        </div> -->
-    <table id="pg" style="width:300px"></table>
+        </div>
   </div>
   <div data-options="region:'south',title:' ',split:true" style="height:100px;">
 
