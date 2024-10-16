@@ -1,1 +1,1 @@
-{"items": [{"id": "Project1", "parent": "Parent1", "text": "Project1"}, {"id": "Project2", "parent": "Parent1", "text": "Project2"}, {"id": "Project3", "parent": "Parent2", "text": "Project3"}]}
+{"items": [{"id": "Education", "name": "University Name", "actualStart": "2020", "actualEnd": "Present", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}, {"id": "Job Title", "name": "Company Name", "actualStart": "2020", "actualEnd": "2022", "connectTo": "", "connectorType": "", "progressValue": "", "parent": "Education"}]}
