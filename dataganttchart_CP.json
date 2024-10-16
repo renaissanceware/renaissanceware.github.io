@@ -1,1 +1,1 @@
-{"items": [{"id": "https://github.com/puppetlabs/puppetdb", "parent": "Infrastructure", "text": "https://github.com/puppetlabs/puppetdb"}]}
+{"items": [{"id": "Project1", "parent": "Parent1", "text": "Project1"}, {"id": "Project2", "parent": "Parent1", "text": "Project2"}, {"id": "Project3", "parent": "Parent2", "text": "Project3"}]}
