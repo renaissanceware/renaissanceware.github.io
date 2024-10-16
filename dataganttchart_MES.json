@@ -1,1 +1,1 @@
-{"items": [{"id": "R-12345", "parent": "Job-Title", "text": "Robert Smith"}, {"id": "R-67890", "parent": "Job-Title", "text": "Jane Doe"}]}
+{"items": [{"id": "TaskKey", "name": "TaskName", "actualStart": "StartDate", "actualEnd": "DueDate", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}, {"id": "TaskKey", "name": "TaskName", "actualStart": "StartDate", "actualEnd": "DueDate", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}]}
