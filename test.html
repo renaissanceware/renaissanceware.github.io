@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/icon.css">
+  <link rel="stylesheet" type="text/css" href="https://jeasyui.com/easyui/themes/color.css">
+  <script type="text/javascript" src="https://jeasyui.com/easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="https://jeasyui.com/easyui/jquery.easyui.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+  <script>
+    var projectKey = '';
+    var chart;
+
+    $(document).ready(function () {
+      loadTimeline();
+    })
+
+    function loadTimeline() {
+      var container = document.getElementById('visualization');
+      var options = {
+        groupOrder: function (a, b) {
+          return a.value - b.value;
+        },
+        editable: true
+      };
+
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions(options);
+
+      $.ajax({
+        url: "group.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          var groups = new vis.DataSet(data);
+          timeline.setGroups(groups);
+        },
+        error: function (xhr, status, error) {
+          alert(status);
+        }
+      })
+
+      $.ajax({
+        url: "item.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          var groups = new vis.DataSet(data);
+          timeline.setItems(items);
+        },
+        error: function (xhr, status, error) {
+          alert(status);
+        }
+      })
+    }
+  </script>
+</head>
+
+<body class="easyui-layout">
+  <div data-options="region:'east',title:'East',split:false" style="width:300px;">
+  </div>
+  <div data-options="region:'south',title:'South',split:false" style="height:100px;">
+
+  </div>
+  <div data-options="region:'west',title:'West',split:false" style="width:300px;">
+    <div id="tree"></div>
+  </div>
+  <div data-options="region:'north',title:'North',split:false" style="height:100px;">
+
+  </div>
+  <div data-options="region:'center',title:'Center'" style="padding:5px;">
+    <div id="visualization"></div>
+  </div>
+</body>
+
+</html>
