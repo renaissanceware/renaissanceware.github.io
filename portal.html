@@ -47,9 +47,8 @@
               if (data.selected.length) {
                 alert('The selected node is: ' + data.instance.get_node(data.selected[0]).id);
                 projectKey = data.instance.get_node(data.selected[0]).id;
-                var jsonfilename = "data/gantt/" + projectKey + ".json";
-                loadTimeline();
-                loadJsonData(jsonfilename);
+                loadTimeline(projectKey);
+                loadJsonData(projectKey);
               }
             })
             .jstree({
@@ -65,7 +64,7 @@
       })
     })
 
-    function loadTimeline() {
+    function loadTimeline(projectKey) {
       var options = {
         groupOrder: function (a, b) {
           return a.value - b.value;
@@ -76,7 +75,7 @@
       timeline.setOptions(options);
 
       $.ajax({
-        url: "group.json",
+        url: "data/timeline/group/" + projectKey + ".json",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -89,7 +88,7 @@
       })
 
       $.ajax({
-        url: "item.json",
+        url: "data/timeline/item/" + projectKey + ".json",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -102,9 +101,9 @@
       })
     }
 
-    function loadJsonData(jsonfilename) {
+    function loadJsonData(projectKey) {
       $.ajax({
-        url: jsonfilename,
+        url: "data/gantt/" + projectKey + ".json",
         type: "GET",
         dataType: "json",
         success: function (data) {
