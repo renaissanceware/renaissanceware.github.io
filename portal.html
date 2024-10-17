@@ -30,10 +30,12 @@
   <script>
     var projectKey = '';
     var chart;
+    var container;
+    var timeline;
 
     $(document).ready(function () {
-      var container = document.getElementById('visualization');
-      var timeline = new vis.Timeline(container);
+      container = document.getElementById('visualization');
+      timeline = new vis.Timeline(container);
       
       $.ajax({
         url: "data/tree/data.json",
