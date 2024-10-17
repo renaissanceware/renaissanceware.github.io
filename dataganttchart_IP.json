@@ -1,1 +1,0 @@
-{"items": [{"id": "Task1", "name": "Task Item 1", "actualStart": "2023-03-01", "actualEnd": "2023-03-05", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}, {"id": "Task2", "name": "Task Item 2", "actualStart": "2023-03-06", "actualEnd": "2023-03-10", "connectTo": "", "connectorType": "", "progressValue": "", "parent": ""}]}
