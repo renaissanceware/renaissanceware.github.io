@@ -84,6 +84,19 @@
           alert(status);
         }
       })
+
+      $.ajax({
+        url: "item.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          var items = new vis.DataSet(data);
+          timeline.setItems(items);
+        },
+        error: function (xhr, status, error) {
+          alert(status);
+        }
+      })
     }
 
     function loadJsonData(jsonfilename) {
