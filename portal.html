@@ -41,25 +41,6 @@
 
                 alert('The selected node is: ' + data.instance.get_node(data.selected[0]).id);
                 projectKey = data.instance.get_node(data.selected[0]).id;
-
-                var jsonfilename = "data/gantt/" + projectKey + ".json";
-
-                $.ajax({
-                  url: jsonfilename,
-                  type: "GET",
-                  dataType: "json",
-                  success: function (data) {
-                    var treeData = anychart.data.tree(data.items, 'as-table');
-                    var chart = anychart.ganttProject();
-                    chart.container('container');
-                    chart.data(treeData);
-                    chart.draw();
-                    chart.fitAll();
-                  },
-                  error: function (xhr, status, error) {
-                    alert(status);
-                  }
-                })
               }
             })
             .jstree({
@@ -112,8 +93,28 @@
       timeline.setItems(items);
     })
 
-    anychart.onDocumentReady(function () {
+    function loadJsonData(file) {
+      $.ajax({
+        url: jsonfilename,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          var treeData = anychart.data.tree(data.items, 'as-table');
+          chart.container('container');
+          chart.data(treeData);
+          chart.draw();
+          chart.fitAll();
+        },
+        error: function (xhr, status, error) {
+          alert(status);
+        }
+      })
+    }
 
+    anychart.onDocumentReady(function () {
+      var chart = anychart.ganttProject();
+      var jsonfilename = "data/gantt/" + "CP" + ".json";
+      loadJsonData(jsonfilename)
     });
   </script>
 </head>
