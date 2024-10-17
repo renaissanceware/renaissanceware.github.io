@@ -77,7 +77,7 @@
         type: "GET",
         dataType: "json",
         success: function (data) {
-          var groups = new vis.DataSet(data);
+          var groups = new vis.DataSet(data.items);
           timeline.setGroups(groups);
         },
         error: function (xhr, status, error) {
@@ -90,7 +90,7 @@
         type: "GET",
         dataType: "json",
         success: function (data) {
-          var items = new vis.DataSet(data);
+          var items = new vis.DataSet(data.items);
           timeline.setItems(items);
         },
         error: function (xhr, status, error) {
