@@ -42,6 +42,9 @@
 
                 alert('The selected node is: ' + data.instance.get_node(data.selected[0]).id);
                 projectKey = data.instance.get_node(data.selected[0]).id;
+
+                var jsonfilename = "data/gantt/" + projectKey + ".json";
+                loadJsonData(jsonfilename);
               }
             })
             .jstree({
